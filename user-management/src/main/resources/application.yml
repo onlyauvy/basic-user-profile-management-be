@@ -1,0 +1,11 @@
+logging:
+  level:
+    org.springframework: ERROR
+    com.funworks: DEBUG
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  main:
+    banner-mode: off
