@@ -15,7 +15,7 @@ public interface UserService {
 
     AuthenticationResponse loginUser(AuthenticationRequest request) throws ExecutionException, InterruptedException;
 
-    User changeUserPassword(String oldPassword, String newPassword);
+    int changeUserPassword(String password, String oldPassword, String email);
 
     User updateUser(User user);
 
@@ -23,4 +23,6 @@ public interface UserService {
     List<User> searchUser(String firstName, String lastName) throws ExecutionException, InterruptedException;
 
     String userForgetPassword(String email);
+
+    int uploadPhoto(String email, byte[] photo);
 }

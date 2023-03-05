@@ -38,7 +38,18 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private String address;
+    @Column(nullable = false)
+    private String postCode;
+
+    @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
+    private String country;
+
+    @Column(nullable = false)
+    private String addressLine1;
+    private String addressLine2;
 
     private String password;
 
