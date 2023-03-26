@@ -27,8 +27,9 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                    .requestMatchers("/user/auth/**", "/h2-console/**").permitAll()
-                    .requestMatchers(toH2Console()).permitAll()
+                    .requestMatchers("/user/auth/**").permitAll()
+                    /*.requestMatchers("/user/auth/**", "/h2-console/**").permitAll()*/
+                    /*.requestMatchers(toH2Console()).permitAll()*/
                     .anyRequest().authenticated()
                 .and()
                     .sessionManagement()

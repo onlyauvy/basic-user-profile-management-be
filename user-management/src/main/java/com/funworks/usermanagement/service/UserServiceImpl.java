@@ -52,9 +52,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User changeUserPassword(String oldPassword, String newPassword) {
-        User user = new User();
-        return userRepository.save(user);
+    public int changeUserPassword(String newPassword, String oldPassword, String email) {
+        return userRepository.changePassword(passwordEncoder.encode(newPassword), passwordEncoder.encode(oldPassword), email);
     }
 
     @Override
@@ -75,5 +74,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public String userForgetPassword(String email) {
         return null;
+    }
+
+    @Override
+    public int uploadPhoto(String email, byte[] photo) {
+        return userRepository.uploadPhoto(photo, email);
     }
 }

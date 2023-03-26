@@ -2,11 +2,13 @@ package com.funworks.usermanagement.controller;
 
 import com.funworks.usermanagement.model.AuthenticationRequest;
 import com.funworks.usermanagement.model.AuthenticationResponse;
+import com.funworks.usermanagement.model.ChangePassword;
 import com.funworks.usermanagement.model.User;
 import com.funworks.usermanagement.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,8 +44,8 @@ public class UserController {
     }
 
     @PostMapping("/change_pass")
-    public User changeUserPassword(String oldPassword, String newPassword){
-        return userService.changeUserPassword(oldPassword, newPassword);
+    public int changeUserPassword(Authentication authentication, @RequestBody ChangePassword changePassword){
+        return userService.changeUserPassword(changePassword.getNewPassword(), changePassword.getOldPassword(), authentication.getName());
     }
 
     @PostMapping("/update")

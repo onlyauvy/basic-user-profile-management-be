@@ -4,8 +4,6 @@ logging:
     com.funworks: DEBUG
 
 spring:
-  config:
-    activate:
-      on-profile: dev
+  profiles.active: uat
   main:
     banner-mode: off
